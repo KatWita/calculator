@@ -1,0 +1,367 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+:root {
+	--white: hsl(0, 0%, 100%);
+	/*? first theme */
+	--main-bg: hsl(222, 26%, 31%);
+	--toggle-bg: hsl(223, 31%, 20%);
+	--screen-bg: hsl(224, 36%, 15%);
+	--reset-key: hsl(225, 21%, 49%);
+	--reset-key-hover: hsl(225, 21%, 59%);
+	--reset-shadow: hsl(224, 28%, 35%);
+	--equal-key: hsl(6, 63%, 50%);
+	--equal-key-hover: hsla(6, 63%, 60%);
+	--equal-shadow: hsl(6, 70%, 34%);
+	--equal-text: hsl(0, 0%, 100%);
+	--number-key: hsl(30, 25%, 89%);
+	--number-key-hover: hsl(30, 25%, 99%);
+	--number-shadow: hsl(28, 16%, 65%);
+	--number-text: hsl(221, 14%, 31%);
+	--dark-text: hsl(221, 14%, 31%);
+	--light-text: hsl(0, 0%, 100%);
+}
+
+.second-theme {
+	--main-bg: hsl(0, 0%, 90%);
+	--toggle-bg: hsl(0, 5%, 81%);
+	--screen-bg: hsl(0, 0%, 93%);
+	--reset-key: hsl(185, 42%, 37%);
+	--reset-key-hover: hsl(185, 42%, 47%);
+	--reset-shadow: hsl(185, 58%, 25%);
+	--equal-key: hsl(25, 98%, 40%);
+	--equal-key-hover: hsla(25, 98%, 50%);
+	--equal-text: hsl(0, 0%, 100%);
+	--equal-shadow: hsl(25, 99%, 27%);
+	--number-key: hsl(45, 7%, 89%);
+	--number-key-hover: hsl(45, 7%, 99%);
+	--number-shadow: hsl(35, 11%, 61%);
+	--number-text: hsl(60, 10%, 19%);
+	--dark-text: hsl(0, 0%, 100%);
+	--light-text: hsl(60, 10%, 19%);
+}
+
+.third-theme {
+	--main-bg: hsl(268, 75%, 9%);
+	--toggle-bg: hsl(268, 71%, 12%);
+	--screen-bg: hsl(268, 71%, 12%);
+	--reset-key: hsl(281, 89%, 26%);
+	--reset-key-hover: hsl(281, 89%, 36%);
+	--reset-shadow: hsl(285, 91%, 52%);
+	--equal-key: hsl(176, 100%, 44%);
+	--equal-key-hover: hsla(176, 100%, 64%);
+	--equal-shadow: hsl(177, 92%, 70%);
+	--equal-text: hsl(198, 20%, 13%);
+	--number-key: hsl(268, 47%, 21%);
+	--number-key-hover: hsl(268, 47%, 31%);
+	--number-shadow: hsl(290, 70%, 36%);
+	--number-text: hsl(52, 100%, 62%);
+	--dark-text: hsl(198, 20%, 13%);
+	--light-text: hsl(52, 100%, 62%);
+}
+
+body,
+button {
+	font-family: 'League Spartan', sans-serif;
+}
+
+body {
+	background-color: var(--main-bg);
+	transition: background-color 0.3s;
+}
+
+.calculator {
+	width: 85vw;
+	margin: 0 auto;
+}
+
+.buttons,
+.nav-buttons {
+	transition: background-color 0.3s;
+}
+
+/*! nav */
+
+.nav,
+.nav-theme-box,
+.nav-buttons,
+.nav-btn {
+	display: flex;
+}
+
+.nav,
+.nav-btn {
+	align-items: center;
+}
+
+.nav {
+	justify-content: space-between;
+	padding: 2em 0;
+	color: var(--light-text);
+	transition: color 0.3s;
+}
+
+.nav-title {
+	font-size: 2rem;
+}
+
+.nav-theme-box {
+	gap: 2em;
+	font-size: 0.8rem;
+}
+
+.nav-text {
+	align-self: end;
+	padding-bottom: 0.4em;
+	font-size: 0.74rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.nav-numbers {
+	display: flex;
+	padding: 0 1em;
+	gap: 1.55em;
+	margin-bottom: 0.5em;
+}
+
+.nav-buttons {
+	position: relative;
+	align-items: center;
+	padding: 0.6em;
+	background-color: var(--toggle-bg);
+	border-radius: 999px;
+}
+
+.nav-buttons input:not(:last-of-type) {
+	margin-right: 1em;
+}
+
+.nav-buttons input {
+	opacity: 0;
+	z-index: 3;
+}
+
+.nav-buttons span {
+	position: absolute;
+	display: block;
+	height: 17px;
+	width: 17px;
+	left: 7%;
+	bottom: 20%;
+	border-radius: 50%;
+	background-color: var(--equal-key);
+	line-height: 21px;
+	transition: all 0.3s ease-in-out;
+}
+
+.nav-buttons input[value='first']:checked ~ span {
+	left: 7%;
+}
+
+.nav-buttons input[value='second']:checked ~ span {
+	left: 39%;
+}
+
+.nav-buttons input[value='third']:checked ~ span {
+	left: 70%;
+}
+
+/*! display */
+.display,
+.buttons {
+	border-radius: 10px;
+}
+
+.display {
+	position: relative;
+	padding: 0.6em;
+	min-height: 88px;
+	background-color: var(--screen-bg);
+	color: var(--light-text);
+	text-align: right;
+	font-size: 2.6rem;
+	transition: background-color 0.3s, color 0.3s;
+	overflow-wrap: break-word;
+}
+
+.inputbox {
+	position: absolute;
+	display: flex;
+	gap: .5em;
+	right: 30px;
+	top: 15px;
+	font-size: 1.2rem;
+	color: var(--reset-key);
+}
+
+.input-operator {
+	color: var(--equal-key);
+}
+
+/*! buttons */
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	gap: 0.9em;
+	padding: 1.5em;
+	margin-top: 1.5em;
+	background-color: var(--toggle-bg);
+}
+
+button {
+	padding: 0.5em 0 0.3em;
+	border: none;
+	border-radius: 6px;
+	font-size: 2.2rem;
+}
+
+.number,
+.operator,
+.reset,
+.equals,
+.delete {
+	transition: all 0.3s;
+}
+
+.number,
+.operator {
+	background-color: var(--number-key);
+	color: var(--number-text);
+	-webkit-box-shadow: 0px 4px 0px 0px var(--number-shadow);
+	-moz-box-shadow: 0px 4px 0px 0px var(--number-shadow);
+	box-shadow: 0px 4px 0px 0px var(--number-shadow);
+}
+
+.reset,
+.delete {
+	background-color: var(--reset-key);
+	color: var(--white);
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	-webkit-box-shadow: 0px 4px 0px 0px var(--reset-shadow);
+	-moz-box-shadow: 0px 4px 0px 0px var(--reset-shadow);
+	box-shadow: 0px 4px 0px 0px var(--reset-shadow);
+}
+
+.reset {
+	grid-column: 1/3;
+}
+
+.equals {
+	grid-column: 3/-1;
+	background-color: var(--equal-key);
+	color: var(--equal-text);
+	font-size: 1.4rem;
+	-webkit-box-shadow: 0px 4px 0px 0px var(--equal-shadow);
+	-moz-box-shadow: 0px 4px 0px 0px var(--equal-shadow);
+	box-shadow: 0px 4px 0px 0px var(--equal-shadow);
+}
+
+@media (min-width: 570px) {
+	.calculator {
+		max-width: 520px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.calculator {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 100vh;
+	}
+
+	.nav {
+		padding-top: 0;
+	}
+
+	.nav-buttons input,
+	button {
+		cursor: pointer;
+	}
+
+	.nav-text {
+		padding-bottom: 0.6em;
+	}
+
+	.nav-toggle {
+		max-width: 70px;
+	}
+
+	.nav-numbers {
+		padding: 0 0 0 0.92em;
+		gap: 1.05em;
+	}
+
+	.nav-buttons {
+		padding: 0.6em;
+		justify-content: center;
+	}
+
+	.nav-buttons input:checked:hover ~ span {
+		background-color: var(--equal-key-hover);
+	}
+
+	.nav-buttons input:not(:last-of-type) {
+		margin-right: 0.5em;
+	}
+
+	.nav-buttons input[value='first']:checked ~ span {
+		left: 9%;
+	}
+
+	.nav-buttons input[value='second']:checked ~ span {
+		left: 39%;
+	}
+
+	.nav-buttons input[value='third']:checked ~ span {
+		left: 65%;
+	}
+
+	.display {
+		padding: 0.8em 0.6em;
+		font-size: 3.3rem;
+		min-height: 134px;
+	}
+
+	.buttons {
+		gap: 1.5em;
+		padding: 2em;
+	}
+
+	button {
+		padding: 0.36em 0 0.136em;
+		font-size: 2.5rem;
+		border-radius: 10px;
+	}
+
+	.reset,
+	.delete {
+		font-size: 1.7rem;
+	}
+
+	.equals {
+		font-size: 1.6rem;
+	}
+
+	.number:hover,
+	.operator:hover {
+		background-color: var(--number-key-hover);
+	}
+
+	.reset:hover,
+	.delete:hover {
+		background-color: var(--reset-key-hover);
+	}
+
+	.equals:hover {
+		background-color: var(--equal-key-hover);
+	}
+}

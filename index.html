@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Calculator app</title>
+</head>
+
+<body>
+  <main class="calculator">
+    <nav class="nav">
+      <h1 class="nav-title">calc</h1>
+      <div class="nav-theme-box">
+        <p class="nav-text">theme</p>
+        <div class="nav-toggle">
+          <div class="nav-numbers">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+          </div>
+          <div class="nav-buttons">
+            <input class="toggle-btn" type="radio" name="toggle" value="first">
+            <input class="toggle-btn" type="radio" name="toggle" value="second">
+            <input class="toggle-btn" type="radio" name="toggle" value="third">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="display">
+      <div class="inputbox">
+        <p class="input"></p>
+        <p class="input-operator"></p>
+      </div>
+
+      <p class="output"></p>
+    </section>
+    <section class="buttons">
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="delete">del</button>
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">+</button>
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator">-</button>
+      <button class="number">.</button>
+      <button class="number">0</button>
+      <button class="operator">/</button>
+      <button class="operator">x</button>
+      <button class="reset">reset</button>
+      <button class="equals">=</button>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
